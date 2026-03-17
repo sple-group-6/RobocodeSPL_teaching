@@ -53,9 +53,15 @@
 				</dictionary>
 			</arguments>
 		</buildCommand>
+		<buildCommand>
+			<name>de.tu_bs.cs.isf.deltaj.resource.deltaj.builder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
 	</buildSpec>
 	<natures>
 		<nature>de.ovgu.featureide.core.featureProjectNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
+		<nature>de.tu_bs.cs.isf.deltaj.resource.deltaj.nature</nature>
 	</natures>
 </projectDescription>
