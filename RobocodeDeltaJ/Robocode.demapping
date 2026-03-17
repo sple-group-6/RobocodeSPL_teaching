@@ -3,3 +3,21 @@ NoMovement:
 
 SpinningRadar:
 <decore/SpinningRadar.decore>
+
+MouseRadar:
+<decore/MouseRadar.decore>
+
+AutoMovement:
+<decore/AutoMovement.decore>
+
+Cornering:
+<decore/AutoMovementCornering.decore>
+
+HeadOnTargeting:
+<decore/HeadOnTargeting.decore>
+
+WeakestSelectEnemy:
+<decore/WeakestSelectEnemy.decore>
+
+MaximumPowerGun:
+<decore/MaximumPowerGun.decore>

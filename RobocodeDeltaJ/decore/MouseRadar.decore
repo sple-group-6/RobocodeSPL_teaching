@@ -1,10 +1,9 @@
- configuration delta "SpinningRadar"
+ configuration delta "MouseRadar"
 	dialect <http://www.emftext.org/java>
 		modifies <../src/jab/module/Radar.java>
 		{
 	modifyStatementListContainer(<method:jab.module.Radar.scan()>, "public void scan() {
-			bot.setTurnRadarRightRadians(Double.POSITIVE_INFINITY);
 	}
-", "SpinningRadar", false);
+", "MouseRadar", false);
 	}
 	

@@ -22,7 +22,7 @@ import java.io.IOException;
  * 
  * @author jab
  */
-public abstract  class  Module  extends TeamRobot {
+public abstract  class Module  extends TeamRobot {
 	
 
 	public static Rectangle2D.Double battleField;

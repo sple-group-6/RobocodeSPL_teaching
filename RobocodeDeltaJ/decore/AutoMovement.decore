@@ -1,0 +1,8 @@
+ configuration delta "AutoMovement"
+	dialect <http://www.emftext.org/java>
+		modifies <../src/jab/module/Movement.java>
+		{
+	addMember(<class:jab.module.Movement>, "private int moveDirection;
+");
+	}
+	

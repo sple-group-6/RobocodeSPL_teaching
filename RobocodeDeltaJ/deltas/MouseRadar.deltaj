@@ -1,0 +1,5 @@
+delta MouseRadar {
+	modifies jab.module.Radar {
+			modifies scan() {}	
+		}
+}
