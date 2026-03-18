@@ -1,0 +1,62 @@
+ configuration delta "KeyboardMovement"
+	dialect <http://www.emftext.org/java>
+		modifies <../src/jab/module/Movement.java>
+		{
+	addClassifierImport(<class:jab.module.Movement>, "java.awt.event.KeyEvent");
+	addClassifierImport(<class:jab.module.Movement>, "java.awt.event.InputEvent");
+	addMember(<class:jab.module.Movement>, "private int moveDirection = 0;
+");
+	addMember(<class:jab.module.Movement>, "private int turnDirection = 0;
+");
+	addMember(<class:jab.module.Movement>, "public void listenInput(InputEvent e) {
+			if (e instanceof KeyEvent) {
+				KeyEvent ke = (KeyEvent) e;
+				if (ke.getID() == KeyEvent.KEY_PRESSED) {
+					switch (ke.getKeyCode()) {
+						case KeyEvent.VK_UP:
+							moveDirection = 1;
+							break;
+						case KeyEvent.VK_DOWN:
+							moveDirection = -1;
+							break;
+						case KeyEvent.VK_RIGHT:
+							turnDirection = 1;
+							break;
+						case KeyEvent.VK_LEFT:
+							turnDirection = -1;
+							break;
+					}
+				} else if (ke.getID() == KeyEvent.KEY_RELEASED) {
+					switch (ke.getKeyCode()) {
+						case KeyEvent.VK_UP:
+						case KeyEvent.VK_DOWN:
+							moveDirection = 0;
+							break;
+						case KeyEvent.VK_RIGHT:
+						case KeyEvent.VK_LEFT:
+							turnDirection = 0;
+							break;
+					}
+				}
+			}
+		}
+");
+	modifyStatementListContainer(<method:jab.module.Movement.move()>, "public void move() {
+			if (moveDirection == 1) {
+				bot.setAhead(40000);
+			} else if (moveDirection == -1) {
+				bot.setBack(40000);
+			} else {
+				bot.setAhead(0);
+			}
+			
+			if (turnDirection == 1) {
+				bot.setTurnRight(10000);
+			} else if (turnDirection == -1) {
+				bot.setTurnLeft(10000);
+			} else {
+				bot.setTurnRight(0);
+			}
+	}
+", "KeyboardMovement", false);
+	}

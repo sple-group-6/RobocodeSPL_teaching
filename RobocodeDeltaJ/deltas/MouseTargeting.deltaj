@@ -1,0 +1,24 @@
+delta MouseTargeting {
+	modifies jab.module.Targeting {
+		adds import java.awt.event.MouseEvent;
+		adds import java.awt.event.InputEvent;
+		adds import robocode.util.Utils;
+		adds import java.lang.Math;
+		
+		adds double mouseX;
+		adds double mouseY;
+		
+		modifies listenInput(InputEvent e) {
+			if (e instanceof MouseEvent) {
+				MouseEvent me = (MouseEvent) e;
+				mouseX = me.getX();
+				mouseY = me.getY();
+			}
+		}
+		
+		modifies target() {
+			double theta = Utils.normalAbsoluteAngle(Math.atan2(mouseX - bot.getX(), mouseY - bot.getY()));
+			bot.setTurnGunRightRadians(Utils.normalRelativeAngle(theta - bot.getGunHeadingRadians()));
+		}
+	}
+}

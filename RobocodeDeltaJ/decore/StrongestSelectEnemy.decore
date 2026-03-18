@@ -1,0 +1,21 @@
+ configuration delta "StrongestSelectEnemy"
+	dialect <http://www.emftext.org/java>
+		modifies <../src/jab/module/SelectEnemy.java>
+		{
+	addClassifierImport(<class:jab.module.SelectEnemy>, "java.lang.Double");
+	addClassifierImport(<class:jab.module.SelectEnemy>, "java.util.Iterator");
+	modifyStatementListContainer(<method:jab.module.SelectEnemy.select()>, "public void select() {
+			Iterator<jab.module.BotInfo> iterator = bot.botsInfo.values().iterator();
+			double maxEnergy = -1;
+			jab.module.BotInfo selected = null;
+			while (iterator.hasNext()) {
+				jab.module.BotInfo e = iterator.next();
+				if (maxEnergy < e.energy) {
+					selected = e;
+					maxEnergy = e.energy;
+				}
+			}
+			bot.enemy = selected;
+	}
+", "StrongestSelectEnemy", false);
+	}

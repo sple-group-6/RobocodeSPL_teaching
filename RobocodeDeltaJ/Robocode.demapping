@@ -21,3 +21,15 @@ WeakestSelectEnemy:
 
 MaximumPowerGun:
 <decore/MaximumPowerGun.decore>
+
+MouseTargeting:
+<decore/MouseTargeting.decore>
+
+KeyboardMovement:
+<decore/KeyboardMovement.decore>
+
+StrongestSelectEnemy:
+<decore/StrongestSelectEnemy.decore>
+
+MouseClickGun:
+<decore/MouseClickGun.decore>
