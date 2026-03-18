@@ -1,0 +1,22 @@
+delta AutoMovementLine {
+	modifies jab.module.Movement {
+		adds import robocode.Event;
+		adds import robocode.HitWallEvent;
+
+		modifies constructor(jab.module.Module bot) {
+			original(bot);
+			this.moveDirection = 1;
+		}
+
+		modifies move() {
+			bot.setMaxVelocity(8);
+			bot.setAhead(10000 * moveDirection);
+		}
+
+		adds public void listen(Event e) {
+			if (e instanceof HitWallEvent) {
+				moveDirection *= -1;
+			}
+		}
+	}
+}

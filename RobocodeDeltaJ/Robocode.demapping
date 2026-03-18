@@ -33,3 +33,15 @@ StrongestSelectEnemy:
 
 MouseClickGun:
 <decore/MouseClickGun.decore>
+
+LinearTargeting:
+<decore/LinearTargeting.decore>
+
+Line:
+<decore/AutoMovementLine.decore>
+
+ClosestSelectEnemy:
+<decore/ClosestSelectEnemy.decore>
+
+NoFireGun:
+<decore/NoFireGun.decore>
